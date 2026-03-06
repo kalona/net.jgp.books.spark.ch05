@@ -74,10 +74,15 @@ public class PiComputeApp implements Serializable {
         + " darts, ready? Stay away from the target!");
 
     long t0 = System.currentTimeMillis();
+
+//    String addExports = "--add-exports=java.base/sun.nio.ch=ALL-UNNAMED";
+
     SparkSession spark = SparkSession
         .builder()
         .appName("Spark Pi")
         .master("local[*]")
+//        .config("spark.driver.extraJavaOptions", addExports)
+//        .config("spark.executor.extraJavaOptions", addExports)
         .getOrCreate();
 
     long t1 = System.currentTimeMillis();
